@@ -1,0 +1,34 @@
+{"timestamp": "2025-11-21T20:12:35.680430", "event_type": "honeypot_started", "honeypot_host": "0.0.0.0", "port": 2222, "seccomp_mode": "docker_profile"}
+{"timestamp": "2025-11-21T20:15:47.654823", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "test", "password": "hgjkkkk", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-21T20:15:50.045459", "event_type": "command_execution", "ip": "172.18.0.1", "username": "test", "command": "ls"}
+{"timestamp": "2025-11-21T20:15:51.547058", "event_type": "command_execution", "ip": "172.18.0.1", "username": "test", "command": "lll"}
+{"timestamp": "2025-11-21T20:15:54.460431", "event_type": "command_execution", "ip": "172.18.0.1", "username": "test", "command": "exit"}
+{"timestamp": "2025-11-21T20:15:54.461004", "event_type": "session_closed", "ip": "172.18.0.1", "username": "test", "reason": "user_exit"}
+{"timestamp": "2025-11-21T20:15:54.461156", "event_type": "session_closed", "ip": "172.18.0.1", "username": "test"}
+{"timestamp": "2025-11-21T20:18:03.116782", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admin", "password": "root", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-21T20:18:03.155737", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admin", "password": "123456", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-21T20:18:03.177176", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admin", "password": "password", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-21T20:18:03.177474", "event_type": "brute_force_alert", "ip": "172.18.0.1", "attempts": 3, "time_window": 60}
+{"timestamp": "2025-11-21T20:18:03.198060", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admin", "password": "admin", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-22T10:29:13.140669", "event_type": "honeypot_started", "honeypot_host": "0.0.0.0", "port": 2222, "seccomp_mode": "docker_profile"}
+{"timestamp": "2025-11-22T10:39:33.127852", "event_type": "honeypot_started", "honeypot_host": "0.0.0.0", "port": 2222, "seccomp_mode": "docker_profile"}
+{"timestamp": "2025-11-22T10:56:09.130513", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admin", "password": "admin", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-22T10:56:09.148066", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admin", "password": "password", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-22T10:56:09.169810", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admin", "password": "root", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-22T10:56:09.170155", "event_type": "brute_force_alert", "ip": "172.18.0.1", "attempts": 3, "time_window": 60}
+{"timestamp": "2025-11-22T10:56:09.179785", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admin", "password": "123456", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-22T11:27:52.002078", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admindoha", "password": "password", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-22T11:27:52.014686", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admindoha", "password": "root", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-22T11:27:52.034268", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admindoha", "password": "123456", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-22T11:27:52.035023", "event_type": "brute_force_alert", "ip": "172.18.0.1", "attempts": 3, "time_window": 60}
+{"timestamp": "2025-11-22T11:27:52.038000", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "admindoha", "password": "admin", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-22T20:23:51.423202", "event_type": "honeypot_started", "honeypot_host": "0.0.0.0", "port": 2222, "seccomp_mode": "docker_profile"}
+{"timestamp": "2025-11-23T14:18:40.257361", "event_type": "honeypot_started", "honeypot_host": "0.0.0.0", "port": 2222, "seccomp_mode": "docker_profile"}
+{"timestamp": "2025-11-23T14:20:38.067305", "event_type": "login_attempt", "ip": "172.18.0.1", "username": "dohael", "password": "ls", "auth_method": "password", "success": true}
+{"timestamp": "2025-11-23T14:20:42.753502", "event_type": "command_execution", "ip": "172.18.0.1", "username": "dohael", "command": "ls"}
+{"timestamp": "2025-11-23T14:20:49.529069", "event_type": "command_execution", "ip": "172.18.0.1", "username": "dohael", "command": "pwd"}
+{"timestamp": "2025-11-23T14:23:50.143153", "event_type": "command_execution", "ip": "172.18.0.1", "username": "dohael", "command": "exit"}
+{"timestamp": "2025-11-23T14:23:50.146880", "event_type": "session_closed", "ip": "172.18.0.1", "username": "dohael", "reason": "user_exit"}
+{"timestamp": "2025-11-23T14:23:50.147208", "event_type": "session_closed", "ip": "172.18.0.1", "username": "dohael"}
+{"timestamp": "2025-11-23T16:45:38.541033", "event_type": "honeypot_started", "honeypot_host": "0.0.0.0", "port": 2222, "seccomp_mode": "docker_profile"}
+{"timestamp": "2025-11-25T22:09:25.160761", "event_type": "honeypot_started", "honeypot_host": "0.0.0.0", "port": 2222, "seccomp_mode": "docker_profile"}
