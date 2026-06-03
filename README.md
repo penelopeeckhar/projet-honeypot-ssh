@@ -112,6 +112,10 @@ projet-honeypot-ssh/
 
 ---
 
+## DEMO
+
+SSH Honeypot — ELK Stack : https://drive.google.com/file/d/1bp0NVej-wHShJWNiqv3pTOovaIBszkP8/view?usp=drive_link
+
 ## ⚠️ Avertissement légal
 
 Ce projet est destiné à un usage éducatif en environnement isolé (VM/lab). Ne pas déployer sur une infrastructure de production ou exposer sur internet sans mesures de sécurité supplémentaires.
