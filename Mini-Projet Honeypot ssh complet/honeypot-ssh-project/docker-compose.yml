@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # Service Elasticsearch - Base de données pour stocker les logs
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - ./data/elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+    networks:
+      - elk
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Service Logstash - Parse et envoie les logs vers Elasticsearch
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.11.0
+    container_name: logstash
+    volumes:
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logs/honeypot:/logs/honeypot:ro
+    ports:
+      - "5044:5044"
+    networks:
+      - elk
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    command: logstash -f /usr/share/logstash/pipeline/logstash.conf
+
+  # Service Kibana - Interface de visualisation
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    networks:
+      - elk
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+
+  # Service Honeypot SSH - Notre application Python
+  honeypot:
+    build: ./honeypot
+    container_name: ssh_honeypot
+    volumes:
+      - ./logs/honeypot:/var/log/honeypot
+    ports:
+      - "2222:2222"
+    networks:
+      - elk
+    depends_on:
+      - logstash
+    security_opt:
+      - apparmor=docker-honeypot
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    restart: unless-stopped
+
+networks:
+  elk:
+    driver: bridge
+
+volumes:
+  elasticsearch-data:

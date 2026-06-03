@@ -1,0 +1,31 @@
+# Environnement Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Données runtime Elasticsearch
+data/
+
+# Logs générés à l'exécution
+logs/honeypot/*.log
+
+# Clé RSA générée dynamiquement
+/tmp/honeypot_rsa_key
+
+# Archives
+*.zip
+*.tar.gz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

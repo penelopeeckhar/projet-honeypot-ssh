@@ -1,0 +1,59 @@
+{
+  "defaultAction": "SCMP_ACT_ERRNO",
+  "architectures": [
+    "SCMP_ARCH_X86_64",
+    "SCMP_ARCH_X86",
+    "SCMP_ARCH_X32"
+  ],
+  "syscalls": [
+    {
+      "names": [
+        "accept",
+        "accept4",
+        "access",
+        "bind",
+        "brk",
+        "close",
+        "connect",
+        "dup",
+        "dup2",
+        "epoll_create",
+        "epoll_create1",
+        "epoll_ctl",
+        "epoll_wait",
+        "exit",
+        "exit_group",
+        "fcntl",
+        "fstat",
+        "futex",
+        "getpid",
+        "getsockname",
+        "getsockopt",
+        "ioctl",
+        "listen",
+        "lseek",
+        "mmap",
+        "mprotect",
+        "munmap",
+        "open",
+        "openat",
+        "poll",
+        "read",
+        "recv",
+        "recvfrom",
+        "rt_sigaction",
+        "rt_sigprocmask",
+        "select",
+        "send",
+        "sendto",
+        "setsockopt",
+        "shutdown",
+        "sigaltstack",
+        "socket",
+        "stat",
+        "write"
+      ],
+      "action": "SCMP_ACT_ALLOW"
+    }
+  ]
+}

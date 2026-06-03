@@ -1,0 +1,41 @@
+# Profil AppArmor pour le conteneur Honeypot SSH
+# Nom : honeypot-ssh-profile
+profile honeypot-ssh-profile flags=(attach_disconnected) {
+  # Inclure les abstractions de base pour le fonctionnement minimal
+  #include <abstractions/base>
+
+  # Interdiction stricte de l'exécution de la plupart des binaires
+  # Ceci empêche l'attaquant d'utiliser des commandes dangereuses comme 'cat' ou 'ls'
+  /bin/* ux, 
+  /usr/bin/* ux,
+  /sbin/* ux,
+
+  # Autorisation spécifique d'exécution pour les composants essentiels :
+  
+  # Le shell utilisé par 'subprocess.run(shell=True)' pour simuler l'exécution de commande
+  /bin/sh ix, 
+  /bin/dash ix, # /bin/sh est souvent un lien vers dash/bash dans les images slim
+
+  # L'interpréteur Python lui-même
+  /usr/local/bin/python3 r,
+  /usr/local/bin/python3.11 r,
+  /app/** r, # Lecture du code de l'application
+  
+  # Réseau : Permettre l'écoute et l'établissement des connexions SSH
+  network inet stream,
+  
+  # Logs : Lecture/Écriture uniquement pour le processus honeypot.py
+  # Seul le programme doit avoir un accès explicite pour écrire.
+  # L'interdiction d'exécuter 'cat' et 'ls' ci-dessus gère le blocage pour l'attaquant.
+  /var/log/honeypot/ rw,
+  /var/log/honeypot/honeypot.log rw,
+  
+  # Accès à la clé RSA générée temporairement (NÉCESSAIRE pour Paramiko)
+  /tmp/honeypot_rsa_key rwk,
+  
+  # Interdictions de lecture des fichiers sensibles (Confinement)
+  deny /etc/** r,
+  deny /proc/** r,
+  deny /dev/mem r, # Blocage d'autres chemins sensibles
+  
+}
